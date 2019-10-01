@@ -1,0 +1,74 @@
+{
+    /*
+     * Possible values:
+     * - the name of a built-in config
+     * - a string that can be resolved as a module that exports the config object, e.g.:
+     *   - an npm package name
+     *   - an npm package name followed by the path to a file inside
+     *   - a relative path to a JSON file
+     */
+    "extends": "tslint:latest",
+    "rules": {
+      /*
+       * Any rules specified here will override those from the base config we are extending.
+       */
+      "quotemark":[
+        false
+      ],
+      "curly": true,
+      "space-within-parens": false,
+      "no-var-requires":false,
+      "prefer-for-of" : false,
+      "no-trailing-whitespace":false,
+      "trailing-comma":[
+        false
+      ],
+      "one-line" :[
+        false
+      ],
+      "object-literal-sort-keys":false,
+      "max-line-length":[
+        false
+      ],
+      "no-submodule-imports":false,
+  
+      /**
+       * Security Rules. The following rules should be turned on because they find security issues
+       * or are recommended in the Microsoft Secure Development Lifecycle (SDL)
+       */
+      "insecure-random": true,
+      "no-banned-terms": true,
+      "no-delete-expression": true,
+      "no-disable-auto-sanitization": true,
+      "no-document-domain": true,
+      "no-document-write": true,
+      "no-eval": true,
+      "no-exec-script": true,
+      "no-function-constructor-with-string-args": true,
+      "no-http-string": [true, "http://www.example.com/?.*", "http://www.examples.com/?.*"],
+      "no-inner-html": true,
+      "no-octal-literal": true,
+      "no-reserved-keywords": true,
+      "no-string-based-set-immediate": true,
+      "no-string-based-set-interval": true,
+      "no-string-based-set-timeout": true,
+      "non-literal-require": true,
+      "possible-timing-attack": true,
+      "react-anchor-blank-noopener": true,
+      "react-iframe-missing-sandbox": true,
+      "react-no-dangerous-html": true
+    },
+    "jsRules": {
+      /*
+       * Any rules specified here will override those from the base config we are extending.
+       */
+      "curly": true
+    },
+    "rulesDirectory": [
+      /*
+       * A list of relative or absolute paths to directories that contain custom rules.
+       * See the Custom Rules documentation below for more details.
+       */
+      "./node_modules/tslint-microsoft-contrib"
+    ]
+  }
