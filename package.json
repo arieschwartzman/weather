@@ -28,7 +28,6 @@
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
     "serve-favicon": "^2.5.0",
-    "tslint-microsoft-contrib": "^6.2.0",
     "uuid": "^3.3.2"
   }
 }
