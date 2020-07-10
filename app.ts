@@ -1,15 +1,16 @@
-const express = require('express');
+const expressJS = require('express');
 const rp = require('request-promise-native');
 const bodyParser = require('body-parser')
 const favicon = require('serve-favicon')
 const path = require('path');
 const uuidv4 = require('uuid/v4');
 const graphqlHTTP = require('express-graphql');
-
+import * as express from 'express';
+import { logger } from 'appinsights-express-middleware';
 import { buildSchema } from 'graphql';
 
-const app = express();
-const port = process.env.PORT || 8080;
+const app = expressJS();
+const port = process.env.PORT || 3000;
 
 let googleSessionId;
 
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(favicon(path.join(__dirname, 'client/public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(logger(app, { key: '375f81c6-af30-4ae5-8034-2836c79178df' }));
 
 const google_api_key = process.env['google_maps_api_key'];
 const google_api_key_client = process.env['google_maps_api_key_client'];
